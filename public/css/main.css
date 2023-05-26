@@ -1,0 +1,200 @@
+body {
+    font-family: 'DM Sans', sans-serif;
+    background: #FAFAFA;
+    padding: 0 20px;
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px 0;
+}
+
+.btn-main {
+    height: 40px;
+    width: 40px;
+    border: none;
+    border-radius: 12px;
+    background-color: #FFF;
+}
+
+header nav .hamburguer {
+    height: 40px;
+    width: 40px;
+    background: url('/img/icons/hamburguer.png');
+    border: none;
+    display: block;
+}
+
+header nav .back {
+    background: url('/img/icons/icon-back.png') no-repeat;
+    border: none;
+    display: block;
+}
+
+header nav .dots {
+    background: url('/img/icons/icon-dots.png') no-repeat;
+    background-position: center;
+    border: none;
+    display: block;
+}
+
+header .welcome span {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 21px;
+    color: #646464;
+    opacity: 0.6;
+}
+
+header .welcome h1 {
+    color: #323232;
+    font-weight: 700;
+}
+
+.searchbar {
+    height: 48px;
+    background: #FFFFFF;
+    border-radius: 12px;
+    border: none;
+    background: url(/img/icons/m-glass.png) no-repeat center left;
+    padding-left: 30px;
+}
+
+.drink-category .col-12 {
+    display: flex;
+    justify-content: space-between;
+}
+
+.drink-category .h3 {
+    color: #323232;
+    font-weight: 700;
+    font-size: 23px;
+}
+
+.drink-category .see-all {
+    color: #646464;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.drink-category .cat-btn {
+    font-size: 16px;
+    font-weight: 500;
+    color: #323232;
+    height: 48px;
+    width: 100%;
+    border: none;
+    display: block;
+}
+
+
+.drink-category .cat-btn.btn-beer {
+    height: 40px;
+    border: none;
+    display: block;
+    color: #FFF;
+    border-radius: 12px;
+    background: #FF9F24 url(/img/icons/Beer.png) no-repeat center left;
+    background-size: 33px 33px !important;
+    background-position-x: 5px;
+    padding-left: 30px;
+}
+
+
+.user-img img {
+    width: 40px;
+    height: 40px;
+    display: block;
+    border-radius: 50%;
+}
+
+.product {
+    font-size: 16px;
+    background: #FFFFFF;
+    border-radius: 12px 32px 12px 12px;
+}
+
+.product .add-btn {
+    background: #FF9F24;
+    border-radius: 8px 0px;
+    border: 0px;
+    font-size: 20px;
+    color: #FFF;
+    width: 40px;
+    height: 40px;
+}
+
+.product .product-bottom {
+    display: flex;
+    justify-content: space-between;
+}
+
+.product .product-brand {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.product-detail .product .product-brand {
+    font-size: 24px;
+    font-weight: 700
+}
+
+.product-detail .product .product-price {
+    font-size: 24px;
+    font-weight: 700;
+    color: #FF9F24;
+}
+
+.product-detail .product .product-origin-stock {
+    font-size: 14px;
+    font-weight: 400;
+    color: #969696;
+}
+
+.product-detail .description-title,
+.product-detail .size-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #323232;
+}
+.product-detail .size-btn {
+    font-size: 14px;
+    font-weight: 700;
+    color: #969696;
+    border-radius: 15.5px;
+    border: 1px solid #969696;
+    padding: 15px;
+}
+.product-detail .size-btn.active {
+    font-size: 14px;
+    font-weight: 700;
+    color: #FF9F24;
+    border: 1px solid #FF9F24;
+}
+
+.product .product-price {
+    font-size: 16px;
+    font-weight: 500;
+    margin-left: 15px;
+}
+
+.product-img {
+    display: flex;
+    justify-content: center;
+}
+
+.product-img {
+    height: 150px;
+}
+
+.product-detail .product-img {
+    height: 300px;
+}
+
+@media (min-width: 678px) {
+    .product-img {
+        height: 200px;
+    }
+
+}
