@@ -1,6 +1,6 @@
 Beer Store (E-commerce app)
 
-This is a vanilla JS project, using node js.
+This is a vanilla JS / JQuery project, using node js.
 
 run 
 - npm install
