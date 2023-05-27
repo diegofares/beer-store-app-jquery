@@ -22,27 +22,17 @@ class App {
     }
     pdp() {
         const product = this.getSingleBeer(this.id);
-
-        const template = document.getElementById('productTemplate');
-        const templateContent = template.content;
-
         const SKU = product.skus[0].code;
-        const item = templateContent.querySelector('.product');
-        item.id = SKU;
-        const itemTitle = templateContent.querySelector('.product-brand');
-        itemTitle.textContent = product.brand;
-        const itemImage = templateContent.querySelector('.product-img img');
-        itemImage.src = "img" + product.image;
 
-        const itemOrigin = templateContent.querySelector('.origin');
-        itemOrigin.textContent = product.origin;
-        const itemDescription = templateContent.querySelector('.product-description');
-        itemDescription.textContent = product.information;
+        let productTemplate = $('.productTemplate').clone();
+        productTemplate.find('.product').attr("id", SKU);
+        productTemplate.find('.product-brand').text(product.brand);
+        productTemplate.find('.product-img img').attr("src", "img" + product.image);
+        productTemplate.find('.origin').text(product.origin);
+        productTemplate.find('.product-description').text(product.information);
+        productTemplate.find('.product-description').text(product.information);
 
-        const itemPrice = templateContent.querySelector('.product-price');
-
-        const newProduct = templateContent.cloneNode(true);
-        document.querySelector(".product-detail .row").appendChild(newProduct);
+        $(".product-detail .row").append(productTemplate);
 
         this.updateSizesBtns(product);
 
@@ -55,20 +45,17 @@ class App {
     }
     updateSizesBtns(product) {
 
-        document.querySelector("#sizes").textContent = ""; // EMPTY
+        $("#sizes").empty(); // EMPTY
 
         const SKUS = product.skus;
         SKUS.forEach(SKU => {
             this.getStockPrice(SKU.code).then((stockPrice) => {
 
-                const template = document.getElementById('sizeBtn');
-                const templateContent = template.content;
-                const sizeBtn = templateContent.querySelector('.size-btn');
-                sizeBtn.href = "/" + product.id + product.brand.toLowerCase().replace(/\s/g, '');
-                sizeBtn.textContent = SKU.name;
+                let sizeBtn = $('#sizeBtn .size-btn').clone();
+                sizeBtn.attr("href", "/" + product.id + product.brand.toLowerCase().replace(/\s/g, ''));
+                sizeBtn.text(SKU.name);
 
-                const newBtn = templateContent.cloneNode(true);
-                document.querySelector("#sizes").appendChild(newBtn);
+                $("#sizes").append(sizeBtn);
             });
         })
 
@@ -76,36 +63,30 @@ class App {
     updateStockPrice(SKU, product) {
         this.getStockPrice(SKU).then((stockPrice) => {
             console.log("result: " + stockPrice.price);
-            document.getElementById(SKU).querySelector(".product-price").innerHTML = this.convertPrices(stockPrice.price);
-            document.getElementById(SKU).querySelector(".stock").textContent = stockPrice.stock;
+            $("#" + SKU + " .product-price").html(this.convertPrices(stockPrice.price));
+            $("#" + SKU + " .stock").text(stockPrice.stock);
         });
     }
     home() {
         const productList = this.getAllBeers();
-        // use template for each product
-
-        const template = document.getElementById('productTemplate');
-        const templateContent = template.content;
 
         productList.forEach(product => {
+
+            const productTemplate = $('.d-none .productTemplate > div').clone();
+
             const SKU = product.skus[0].code;
-            const item = templateContent.querySelector('.product');
-            item.id = SKU;
-            const itemTitle = templateContent.querySelector('.product-brand');
-            itemTitle.textContent = product.brand;
-            const itemImage = templateContent.querySelector('.product-img img');
-            itemImage.src = "img" + product.image;
-            const itemPrice = templateContent.querySelector('.product-price');
+            productTemplate.find('.product').attr("id", SKU);
+            productTemplate.find('.product-brand').text(product.brand);
+            productTemplate.find('.product-img img').attr("src", "img" + product.image);
 
-            const newProduct = templateContent.cloneNode(true);
+            $(".product-list > .row").append(productTemplate);
 
-            document.querySelector(".product-list .row").appendChild(newProduct);
             this.getStockPrice(SKU).then((stockPrice) => {
                 console.log("result: " + stockPrice.price);
-                document.getElementById(SKU).querySelector(".product-price").innerHTML = this.convertPrices(stockPrice.price);
-                document.getElementById(SKU).querySelector(".add-btn").onclick = function () {
+                $("#" + SKU + " .product-price").html(this.convertPrices(stockPrice.price));
+                $("#" + SKU + " .add-btn").on("click", function () {
                     document.location.href = "/" + product.id + product.brand.toLowerCase().replace(/\s/g, '');
-                };
+                });
             });
         });
 

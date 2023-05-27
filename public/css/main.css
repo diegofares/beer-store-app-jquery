@@ -115,6 +115,10 @@ header .welcome h1 {
     border-radius: 12px 32px 12px 12px;
 }
 
+.product-detail .product {
+    padding: 0 24px;
+}
+
 .product .add-btn {
     background: #FF9F24;
     border-radius: 8px 0px;
@@ -158,14 +162,17 @@ header .welcome h1 {
     font-weight: 700;
     color: #323232;
 }
+
 .product-detail .size-btn {
     font-size: 14px;
     font-weight: 700;
     color: #969696;
     border-radius: 15.5px;
     border: 1px solid #969696;
+    margin: 0 5px;
     padding: 15px;
 }
+
 .product-detail .size-btn.active {
     font-size: 14px;
     font-weight: 700;
